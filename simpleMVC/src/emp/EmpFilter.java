@@ -9,12 +9,12 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
-@WebFilter("/Home.jsp")
-public class SimpleFilter implements Filter {
+@WebFilter("/EmpServ")
+public class EmpFilter implements Filter {
 
-	public SimpleFilter() {
+	public EmpFilter() {
 
 	}
 
@@ -24,14 +24,10 @@ public class SimpleFilter implements Filter {
 
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		String pass = request.getParameter("pass");
-		HttpServletRequest req = (HttpServletRequest) request;
-		String x = req.getHeader("authenciated");
-		if (x != null) {
-			chain.doFilter(request, response);
-		} else {
-			System.out.println("hiii");
-		}
+		HttpServletResponse rs = (HttpServletResponse) response;
+		String a = (String) rs.getHeader("authen");
+		System.out.println(a);
+		chain.doFilter(request, response);
 	}
 
 	public void init(FilterConfig fConfig) throws ServletException {

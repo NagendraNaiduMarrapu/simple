@@ -5,22 +5,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form action="LoginServlet">
 	username : <input type="text" name="uname" ><br>
-	password : <input type="text" id="pass" ><br>
+	password : <input type="text" name="pass"  ><br>
 	
-	<input type="button" onclick="hii()">
-<script>
-	function hii(){
-		var xhr=new XMLHttpRequest();
-		var x=document.getElementById("pass").value;
-		xhr.open('GET',"EmpServ?pass="+x,true);
-		xhr.onreadystatechange=function(){
-			if(xhr.status===200 ){
-				document.body.innerHTML=xhr.responseText;
-			}
-		}
-		xhr.send();
-	}
-</script>
+	<input type="submit" value="login">
+</form>
+
 </body>
 </html>

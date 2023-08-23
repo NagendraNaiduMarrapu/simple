@@ -27,7 +27,8 @@
                 	currentpages = Integer.parseInt(currentpage);
                 }
             
-                int totalPages = (int) request.getAttribute("totalPages");
+                int totalPages = (int) session.getAttribute("totalPages");
+
                 int startIndex = (currentpages - 1) * recordsPerPage;
                 int endIndex = Math.min(startIndex + recordsPerPage, aee.size());
 

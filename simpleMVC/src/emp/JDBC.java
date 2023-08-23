@@ -14,12 +14,10 @@ public class JDBC {
 			Class.forName("org.postgresql.Driver");
 			Connection con = DriverManager.getConnection("jdbc:postgresql://192.168.110.48:5432/plf_training",
 					"plf_training_admin", "pff123");
-			System.out.println("connn");
 			Statement smt = con.createStatement();
 			ae = new ArrayList<Employee>();
 			ResultSet rs = smt.executeQuery("select * from Hemployee");
 			while (rs.next()) {
-				System.out.println(rs.getString(1));
 				ae.add(new Employee(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
 						rs.getString(5)));
 			}
